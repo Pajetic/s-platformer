@@ -20637,6 +20637,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 439852460947100885, guid: 05c464a99f3ca2e498f3287a043b5ac4, type: 3}
+      propertyPath: jumpPower
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 439852460947100885, guid: 05c464a99f3ca2e498f3287a043b5ac4, type: 3}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2209494632761511151, guid: 05c464a99f3ca2e498f3287a043b5ac4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.91
@@ -20680,6 +20688,18 @@ PrefabInstance:
     - target: {fileID: 6359265639610034126, guid: 05c464a99f3ca2e498f3287a043b5ac4, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978831373411258587, guid: 05c464a99f3ca2e498f3287a043b5ac4, type: 3}
+      propertyPath: m_GravityScale
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978831373411258587, guid: 05c464a99f3ca2e498f3287a043b5ac4, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076992756827514941, guid: 05c464a99f3ca2e498f3287a043b5ac4, type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
