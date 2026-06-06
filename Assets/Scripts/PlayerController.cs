@@ -3,12 +3,14 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.VirtualTexturing;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpPower = 5f;
     [SerializeField] private float climbSpeed = 5f;
     [SerializeField] private Vector2 deathVector = new Vector2(10f, 20f);
+    [SerializeField] private Transform muzzle;
+    [SerializeField] private GameObject bulletPrefab;
     
     private Vector2 _moveInput;
     private Vector2 _moveVelocity;
@@ -52,6 +54,12 @@ public class PlayerMovement : MonoBehaviour
         {
             _rigidbody.linearVelocity += new Vector2(0f, jumpPower);
         }
+    }
+
+    private void OnAttack(InputValue value)
+    {
+        if (!_isAlive) return;
+        Instantiate(bulletPrefab, muzzle.position, transform.rotation).GetComponent<BulletController>().SetProjectileDirection(transform.localScale.x > 0 ? 1f : -1f);
     }
 
     private void Run()
