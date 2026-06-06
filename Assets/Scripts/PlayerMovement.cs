@@ -1,12 +1,14 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.VirtualTexturing;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpPower = 5f;
     [SerializeField] private float climbSpeed = 5f;
+    [SerializeField] private Vector2 deathVector = new Vector2(10f, 20f);
     
     private Vector2 _moveInput;
     private Vector2 _moveVelocity;
@@ -16,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D _feetCollider;
     private bool _isMovingHorizontally;
     private float _normalGravity;
+    private bool _isAlive = true;
     
     private void Start()
     {
@@ -28,13 +31,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!_isAlive) return;
         Run();
         SetSpriteHorizontalDirection();
         ClimbLadder();
+        HandleDeath();
     }
 
     private void OnMove(InputValue value)
     {
+        if (!_isAlive) return;
         _moveInput = value.Get<Vector2>();
     }
 
@@ -80,5 +86,15 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody.linearVelocity = _moveVelocity;
         
         _animator.SetBool("isClimbing", Mathf.Abs(_rigidbody.linearVelocity.y) > Mathf.Epsilon);
+    }
+
+    private void HandleDeath()
+    {
+        if (_bodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazards")))
+        {
+            _isAlive = false;
+            _animator.SetTrigger("isDying");
+            _rigidbody.linearVelocity = deathVector;
+        }
     }
 }
