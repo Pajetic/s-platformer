@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 7
-  jumpPower: 20
+  jumpPower: 21
   climbSpeed: 5
   deathVector: {x: 10, y: 20}
   muzzle: {fileID: 1443039926232964741}

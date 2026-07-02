@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnJump(InputValue value)
     {
-        if (!_feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) return;
+        if (!_isAlive || !_feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) return;
         
         if (value.isPressed)
         {
