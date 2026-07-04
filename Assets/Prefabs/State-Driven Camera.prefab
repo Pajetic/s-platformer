@@ -97,8 +97,8 @@ MonoBehaviour:
       Enabled: 1
       Size: {x: 0.2, y: 0.2}
     HardLimits:
-      Enabled: 0
-      Size: {x: 0.8, y: 0.8}
+      Enabled: 1
+      Size: {x: 0.9, y: 0.9}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
   TargetOffset: {x: 0, y: 0, z: 0}
@@ -225,8 +225,8 @@ MonoBehaviour:
       Enabled: 1
       Size: {x: 0.2, y: 0.2}
     HardLimits:
-      Enabled: 0
-      Size: {x: 0.8, y: 0.8}
+      Enabled: 1
+      Size: {x: 0.9, y: 0.9}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
   TargetOffset: {x: 0, y: 0, z: 0}
@@ -353,8 +353,8 @@ MonoBehaviour:
       Enabled: 1
       Size: {x: 0.2, y: 0.2}
     HardLimits:
-      Enabled: 0
-      Size: {x: 0.8, y: 0.8}
+      Enabled: 1
+      Size: {x: 0.9, y: 0.9}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
   TargetOffset: {x: 0, y: 0, z: 0}
@@ -469,14 +469,6 @@ MonoBehaviour:
     Camera: {fileID: 3905492950619950420}
     ActivateAfter: 0
     MinDuration: 0
-  HashOfParent:
-  - Hash: 1432961145
-    HashOfParent: 756556552
-  - Hash: -827840423
-    HashOfParent: 756556552
-  - Hash: 421803916
-    HashOfParent: 756556552
-  - Hash: -1546996312
-    HashOfParent: 756556552
+  HashOfParent: []
   m_LegacyLookAt: {fileID: 0}
   m_LegacyFollow: {fileID: 0}
