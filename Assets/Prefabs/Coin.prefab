@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb37f9f4d753d5489e1aafea6cc8890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoinController
-  coinPickupSFX: {fileID: 8300000, guid: 0fc9dedbf18d50b4fb1cace658bfa82a, type: 3}
+  _coinPickupSFX: {fileID: 8300000, guid: 0fc9dedbf18d50b4fb1cace658bfa82a, type: 3}
 --- !u!82 &70369924867575673
 AudioSource:
   m_ObjectHideFlags: 0

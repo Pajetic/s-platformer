@@ -1,9 +1,10 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private float _moveSpeed = 1f;
     private Rigidbody2D _rigidbody;
 
     private void Start()
@@ -13,12 +14,12 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        _rigidbody.linearVelocity = new Vector2(moveSpeed, 0f);
+        _rigidbody.linearVelocity = new Vector2(_moveSpeed, 0f);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        moveSpeed *= -1;
+        _moveSpeed *= -1;
         FlipSprite();
     }
 

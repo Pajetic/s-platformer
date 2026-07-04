@@ -257,12 +257,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f9f6e868f569ff418a402fb30e0855a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 7
-  jumpPower: 21
-  climbSpeed: 5
-  deathVector: {x: 10, y: 20}
-  muzzle: {fileID: 1443039926232964741}
-  bulletPrefab: {fileID: 3040441370316661813, guid: ff70a80ed45ccc84eb223e98bde60f63, type: 3}
+  _moveSpeed: 5
+  _jumpPower: 21
+  _climbSpeed: 5
+  _deathVector: {x: 10, y: 20}
+  _muzzle: {fileID: 1443039926232964741}
+  _bulletPrefab: {fileID: 3040441370316661813, guid: ff70a80ed45ccc84eb223e98bde60f63, type: 3}
 --- !u!61 &6506649497357857672
 BoxCollider2D:
   m_ObjectHideFlags: 0

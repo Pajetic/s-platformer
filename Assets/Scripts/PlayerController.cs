@@ -2,15 +2,16 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.VirtualTexturing;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float jumpPower = 5f;
-    [SerializeField] private float climbSpeed = 5f;
-    [SerializeField] private Vector2 deathVector = new Vector2(10f, 20f);
-    [SerializeField] private Transform muzzle;
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private float _moveSpeed = 5f;
+    [SerializeField] private float _jumpPower = 5f;
+    [SerializeField] private float _climbSpeed = 5f;
+    [SerializeField] private Vector2 _deathVector = new Vector2(10f, 20f);
+    [SerializeField] private Transform _muzzle;
+    [SerializeField] private GameObject _bulletPrefab;
     
     private Vector2 _moveInput;
     private Vector2 _moveVelocity;
@@ -52,19 +53,19 @@ public class PlayerController : MonoBehaviour
         
         if (value.isPressed)
         {
-            _rigidbody.linearVelocity += new Vector2(0f, jumpPower);
+            _rigidbody.linearVelocity += new Vector2(0f, _jumpPower);
         }
     }
 
     private void OnAttack(InputValue value)
     {
         if (!_isAlive) return;
-        Instantiate(bulletPrefab, muzzle.position, transform.rotation).GetComponent<BulletController>().SetProjectileDirection(transform.localScale.x > 0 ? 1f : -1f);
+        Instantiate(_bulletPrefab, _muzzle.position, transform.rotation).GetComponent<BulletController>().SetProjectileDirection(transform.localScale.x > 0 ? 1f : -1f);
     }
 
     private void Run()
     {
-        _moveVelocity = new Vector2(_moveInput.x * moveSpeed, _rigidbody.linearVelocity.y);
+        _moveVelocity = new Vector2(_moveInput.x * _moveSpeed, _rigidbody.linearVelocity.y);
         _rigidbody.linearVelocity = _moveVelocity;
         
         _isMovingHorizontally = Math.Abs(_rigidbody.linearVelocity.x) > Mathf.Epsilon;
@@ -90,7 +91,7 @@ public class PlayerController : MonoBehaviour
         }
 
         _rigidbody.gravityScale = 0f;
-        _moveVelocity = new Vector2(_rigidbody.linearVelocity.x, _moveInput.y * climbSpeed);
+        _moveVelocity = new Vector2(_rigidbody.linearVelocity.x, _moveInput.y * _climbSpeed);
         _rigidbody.linearVelocity = _moveVelocity;
         
         _animator.SetBool("isClimbing", Mathf.Abs(_rigidbody.linearVelocity.y) > Mathf.Epsilon);
@@ -102,7 +103,8 @@ public class PlayerController : MonoBehaviour
         {
             _isAlive = false;
             _animator.SetTrigger("isDying");
-            _rigidbody.linearVelocity = deathVector;
+            _rigidbody.linearVelocity = _deathVector;
+            GameSession.Instance.HandlePlayerDeath();
         }
     }
 }

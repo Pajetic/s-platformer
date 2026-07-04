@@ -1,9 +1,10 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BulletController : MonoBehaviour
 {
-    [SerializeField] private float projectileSpeed = 20f;
+    [SerializeField] private float _projectileSpeed = 20f;
     private Vector2 _projectileVector;
 
     private Rigidbody2D _rigidbody;
@@ -34,6 +35,6 @@ public class BulletController : MonoBehaviour
 
     public void SetProjectileDirection(float direction)
     {
-        _projectileVector = new Vector2(direction * projectileSpeed, 0f);
+        _projectileVector = new Vector2(direction * _projectileSpeed, 0f);
     }
 }
