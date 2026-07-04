@@ -18,6 +18,7 @@ public class ExitPortalController : MonoBehaviour
         {
             nextSceneIndex = 0;
         }
+        PersistentSceneObjects.Instance.ResetPersistentSceneObjects();
         SceneManager.LoadScene(nextSceneIndex);
     }
 }

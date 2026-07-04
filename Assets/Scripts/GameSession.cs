@@ -61,6 +61,7 @@ public class GameSession : MonoBehaviour
 
     private void ResetGameSession()
     {
+        PersistentSceneObjects.Instance.ResetPersistentSceneObjects();
         SceneManager.LoadScene(0);
         Destroy(gameObject);
     }
